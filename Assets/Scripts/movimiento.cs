@@ -10,6 +10,9 @@ public class a : MonoBehaviour
     private float movimientoHorizontal;
     private bool enSuelo;
 
+    private int cantidadAbejas = 0;
+    public TMP_Text textoAbejas;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,5 +46,15 @@ public class a : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Ground")) enSuelo = true;
+    }
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Abeja")) 
+        {
+        Debug.Log("¡Colisionaste con una abeja!");
+        Destroy(col.gameObject);
+        cantidadAbejas++;
+        textoAbejas.text = "Abejas: " + cantidadAbejas;
+        }
     }
 }
