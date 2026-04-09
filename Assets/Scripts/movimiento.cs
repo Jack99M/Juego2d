@@ -1,6 +1,6 @@
 using UnityEngine;
-
-public class a : MonoBehaviour
+using TMPro;
+public class movimiento : MonoBehaviour
 {
     public float velocidad = 5f;
     public float fuerzaSalto = 5f;
